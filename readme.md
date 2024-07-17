@@ -5,3 +5,4 @@
 ## Ресурсы проекта
     - Django
     - PostgreSQL
+    - Bootstrap 4
