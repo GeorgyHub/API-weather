@@ -56,17 +56,31 @@
                 <div class="row">
                   <div class="col-5 offset-1">
                     <h2>Введите горд для </h2>
-                    <form>
+                    <form method="POST">
+                      {% csrf_token %}
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Город</label>
-                          <input type="email" class="form-control" type="text" id="city">
-                          <small id="emailHelp" class="form-text text-muted">Пожалуйста, введите город.</small>
+                          <label for="exampleInputEmail1">Город 1</label>
+                          <input type="text" class="form-control" name="city_1" type="text" id="city">
+                          <label for="exampleInputEmail1">Город 2</label>
+                          <input type="text" class="form-control" name="city_2" type="text" id="city">
                         </div>
                         <button type="submit" class="btn btn-primary">Узнать погоду</button>
-                        </form> 
+                    </form> 
                     </div>
                     <div class="col-4 offset-1">
                       <h2>Инофрмация</h2>
+                      <div class="comparison-container">
+                        {% if weather_data_1 %}
+                        <div class="city-container">
+                          {% include "city_weather.html" with weather_data=weather_data_1 dairy_forecasts = dairy_forecasts_1 %}
+                        </div>
+                        {% endif %}
+                        {% if weather_data_2 %}
+                        <div class="city-container">
+                          {% include "city_weather.html" with weather_data=weather_data_2 dairy_forecasts = dairy_forecasts_2 %}
+                        </div>
+                        {% endif %}
+                      </div>
                   </div>
                 </div>
             </div>
