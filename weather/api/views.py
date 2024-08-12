@@ -20,13 +20,13 @@ def index(request):
     # context = {'info': city_info}
 
     # return render(request, 'index.html', context=context)
-    API_KEY = ('API_KEY', "r").read()
+    API_KEY = open('../weather/API_KEY', "r").read()
     current_weather_url = "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}"
     forecast_url = "https://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&exclude=current,mintely,hourly,alerts&appid={}"
 
     if request.method == "POST":
         city_1 = request.POST['city_1']
-        city_2 = request.get('city_2', None)
+        city_2 = request.POST.get('city_2', None)
 
         weather_data_1, dairy_forecats_1 = fetch_weather_and_forecast(city_1, API_KEY, current_weather_url, forecast_url)
 

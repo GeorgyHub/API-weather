@@ -72,12 +72,12 @@
                       <div class="comparison-container">
                         {% if weather_data_1 %}
                         <div class="city-container">
-                          {% include "city_weather.html" with weather_data=weather_data_1 dairy_forecasts = dairy_forecasts_1 %}
+                          {% include "city_weather.html" with weather_data=weather_data_1 dairy_forecasts=dairy_forecasts_1 %}
                         </div>
                         {% endif %}
                         {% if weather_data_2 %}
                         <div class="city-container">
-                          {% include "city_weather.html" with weather_data=weather_data_2 dairy_forecasts = dairy_forecasts_2 %}
+                          {% include "city_weather.html" with weather_data=weather_data_2 dairy_forecasts=dairy_forecasts_2 %}
                         </div>
                         {% endif %}
                       </div>
